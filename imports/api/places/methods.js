@@ -19,12 +19,12 @@ export const listPlaces = new ValidatedMethod({
       params: {}
     });
     const muckMapResults = HTTP.post('https://cardforge.herokuapp.com/parse/classes/GPSMarkerObject', {
-      data: {"where":{ "type": "muckedHome" },"limit":5000,"order":"-updatedAt","_method":"GET","_ApplicationId":"cardforgegame","_JavaScriptKey":"brian","_ClientVersion":"js1.9.2","_InstallationId":"119bf705-6884-48b2-d21b-a530d5e53845"}
+      data: {"where":{ "type": "muckedHome" },"limit":5000,"order":"-updated_at","_method":"GET","_ApplicationId":"cardforgegame","_JavaScriptKey":"brian","_ClientVersion":"js1.9.2","_InstallationId":"119bf705-6884-48b2-d21b-a530d5e53845"}
     });
     const needs = _.map(needsResult.data.needs, need => ({
       type: 'need',
-      updatedBy: need.update_by,
-      updatedAt: need.updatedAt,
+      updated_by: need.update_by,
+      updated_at: need.updatedAt,
       name: need.location_name,
       description: need.anything_else_you_would_like_to_tell_us,
       address: need.location_address,
@@ -43,8 +43,8 @@ export const listPlaces = new ValidatedMethod({
     }));
     const shelters = _.map(sheltersResults.data.shelters, shelter => ({
       type: 'shelter',
-      updatedBy: shelter.updated_by,
-      updatedAt: shelter.updatedAt,
+      updated_by: shelter.updated_by,
+      updated_at: shelter.updatedAt,
       name: shelter.shelter,
       description: shelter.notes,
       address: shelter.address,
@@ -63,8 +63,8 @@ export const listPlaces = new ValidatedMethod({
     }));
     const muckMap = _.map(muckMapResults.data.results, muck => ({
       type: muck.type,
-      updatedBy: muck.name,
-      updatedAt: muck.updatedAt,
+      updated_by: muck.name,
+      updated_at: muck.updatedAt,
       name: 'Volunteer Help Needed',
       description: muck.description,
       address: muck.address,

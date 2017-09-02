@@ -6,7 +6,11 @@ import Checkbox from 'material-ui/Checkbox';
 import { AsyncGoogleMap } from '../components/GoogleMap.js';
 import FaSpinner from 'react-icons/lib/fa/spinner';
 
+import { PlacesTable } from '../components/PlacesTable.js';
+
 const googleMapURL = `https://maps.googleapis.com/maps/api/js?key=${Meteor.settings.public.googleMaps.apiKey}&libraries=places`;
+
+const tableFields = ['type', 'name', 'description', 'address', 'city', 'county', 'contact_name', 'contact_number', 'accepting_refugees', 'accepting_pets', 'accepting_volunteers', 'accepting_supplies', 'updated_at', 'updated_by'];
 
 const filterPlaces = (state) => {
   const { places, types, accepting_refugees, accepting_pets, accepting_supplies, accepting_volunteers } = state;
@@ -82,6 +86,8 @@ class Index extends React.Component {
         onMarkerRightClick={_.noop}
         onMarkerClose={() => places[selected].showInfo = false}
       />
+
+        <PlacesTable places={places} fields={tableFields} />
       </div>
     );
   }
