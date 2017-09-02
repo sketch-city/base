@@ -6,21 +6,17 @@ import { Meteor } from 'meteor/meteor';
 import PublicNavigation from './PublicNavigation.js';
 import AuthenticatedNavigation from './AuthenticatedNavigation.js';
 import container from '../../modules/container';
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 
-const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
+const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <FlatButton href="/add" label="Add" />);
 
 const AppNavigation = ({ hasUser }) => (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <Link to="/">Application Name</Link>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      { renderNavigation(hasUser) }
-    </Navbar.Collapse>
-  </Navbar>
+  <AppBar
+    title="Harvey Relief & Recovery"
+    showMenuIconButton={false}
+    iconElementRight={renderNavigation(hasUser)}
+  />
 );
 
 AppNavigation.propTypes = {

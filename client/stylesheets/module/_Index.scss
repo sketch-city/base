@@ -1,0 +1,19 @@
+.Index {
+  height: 500px;
+  padding-top: 25px;
+}
+
+.Index .checkbox-group {
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.Index .checkbox-group > div {
+  width: 200px !important;
+}
+.checkbox-group .label {
+  min-width: 100px;
+  color: black;
+  font-size: 1em;
+  text-align: left;
+}

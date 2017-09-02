@@ -1,4 +1,8 @@
 {
-  "public": {},
+  "public": {
+    "googleMaps": {
+      "apiKey": "AIzaSyBfXbHjhxFk97pbgRX7oVdSYwBAq8VSyBQ"
+    }
+  },
   "private": {}
 }
