@@ -13,7 +13,7 @@ const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <Fl
 
 const AppNavigation = ({ hasUser }) => (
   <AppBar
-    title="Harvey Relief & Recovery"
+    title="Harvey Admin"
     showMenuIconButton={false}
     iconElementRight={renderNavigation(hasUser)}
   />
